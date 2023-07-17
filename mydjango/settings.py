@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-8l7c4f&p$ofv51)&y)ff&(it42$l%b7#5qzk^6ei6$(v50ah-e
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'base.apps.BaseConfig'
+    'base.apps.BaseConfig',
+    'autoslug'
 ]
 
 MIDDLEWARE = [
@@ -70,6 +71,8 @@ TEMPLATES = [
         },
     },
 ]
+# Specify the 404 template
+handler404 = 'base.views.custom_404_page'
 
 WSGI_APPLICATION = 'mydjango.wsgi.application'
 
@@ -121,9 +124,13 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+MEDIA_URL = '/img/'
+
 STATICFILES_DIRS = [
     BASE_DIR / "static"
 ]
+
+MEDIA_ROOT = BASE_DIR / "static/img"
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 

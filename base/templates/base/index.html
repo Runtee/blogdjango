@@ -1,6 +1,9 @@
 {% extends 'main.html' %} {% block content %}
 <!-- Page Header-->
 {% load static %}
+{% for cal in posts %}
+<li>{{ cal.author.first_name }} i</li>
+{% endfor %}
 <header
   class="masthead"
   style="background-image: url({% static 'assets/img/home-bg.jpg' %})"
